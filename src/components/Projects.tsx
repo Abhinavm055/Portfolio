@@ -9,7 +9,10 @@
  */
 import { useRef, useState, useCallback, useEffect } from 'react'
 import gsap from 'gsap'
-import projectMockup from '../assets/project_mockup_cric.png'
+import projectMockupCric from '../assets/project_mockup_cric.png'
+import projectMockupColivi from '../assets/project_mockup_colivi.jpg'
+import projectMockupAegis from '../assets/project_mockup_aegis.jpg'
+import projectMockupTalvyn from '../assets/project_mockup_talvyn.jpg'
 
 /* ─── Project Data ──────────────────────────────────────── */
 const PROJECTS = [
@@ -21,11 +24,11 @@ const PROJECTS = [
     year: '2025',
     description:
       'Developed a real-time IPL auction platform that allows users to participate in live multiplayer auctions and AI-powered mock auctions. The application simulates the complete IPL player auction process with live bidding, team management, administrative controls, and a realistic auction experience.',
-    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Node.js'],
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Firebase', 'Firestore'],
     status: { label: 'Production Ready', color: '#6ee7b7' },
     live: 'https://cricauctionipl.web.app/',
     source: 'https://github.com/Abhinavm055/CricAuctionIPL',
-    image: projectMockup,
+    image: projectMockupCric,
   },
   {
     id: '02',
@@ -35,11 +38,11 @@ const PROJECTS = [
     year: '2025',
     description:
       'A full-stack roommate finding and co-living platform that connects like-minded people and makes finding suitable housing and roommates easier.',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Neon PostgreSQL'],
+    tech: ['React', 'JavaScript', 'Node.js', 'PostgreSQL', 'Neon', 'Tailwind CSS'],
     status: { label: 'Production Ready', color: '#6ee7b7' },
     live: 'https://co-livi-mates.vercel.app/',
     source: 'https://github.com/Abhinavm055/CoLiviMates',
-    image: null,
+    image: projectMockupColivi,
   },
   {
     id: '03',
@@ -50,23 +53,11 @@ const PROJECTS = [
     year: '2026',
     description:
       'AegisAI is an AI-powered cybersecurity platform that acts as an intelligent analysis and orchestration layer over existing security infrastructure. It analyzes security logs from multiple sources, correlates suspicious events, assesses threat severity, generates explainable AI-driven security insights, and enables policy-controlled automated responses such as IP blocking, user account locking, alerts, and incident creation.',
-    tech: [
-      'React',
-      'TypeScript',
-      'Vite',
-      'Tailwind CSS',
-      'Spring Boot',
-      'Java',
-      'Python',
-      'LLMs',
-      'Multi-Agent AI',
-      'PostgreSQL',
-      'Docker',
-    ],
+    tech: ['React', 'Node.js', 'Java', 'Google Gemini', 'LLMs', 'PostgreSQL', 'Docker'],
     status: { label: 'Production Ready', color: '#6ee7b7' },
     live: 'https://aegisai-cyber.vercel.app/',
     source: 'https://github.com/Abhinavm055/AegisAI',
-    image: null,
+    image: projectMockupAegis,
   },
   {
     id: '04',
@@ -76,27 +67,11 @@ const PROJECTS = [
     year: '2026',
     description:
       'Built a full-stack career intelligence platform that combines a React/TypeScript SaaS dashboard with a Node.js/Express API, PostgreSQL/Prisma data layer, and Manifest V3 browser extension. Talvyn helps users discover and evaluate job opportunities, manage resumes and profiles, score jobs against their skills and career preferences, track applications, and automate repetitive application workflows.',
-    tech: [
-      'React',
-      'TypeScript',
-      'Vite',
-      'Tailwind CSS',
-      'React Router',
-      'TanStack Query',
-      'Zustand',
-      'Node.js',
-      'Express.js',
-      'PostgreSQL',
-      'Prisma',
-      'JWT',
-      'Google OAuth',
-      'Manifest V3',
-      'Chrome Extension APIs',
-    ],
+    tech: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma', 'Manifest V3 Extension'],
     status: { label: 'Production Ready', color: '#6ee7b7' },
     live: 'https://talvyn.vercel.app/',
     source: 'https://github.com/Abhinavm055/Talvyn',
-    image: null,
+    image: projectMockupTalvyn,
   },
 ]
 
