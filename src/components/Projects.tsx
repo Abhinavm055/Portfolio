@@ -32,7 +32,7 @@ const PROJECTS = [
     name: 'CoLiviMates',
     tagline: 'Roommate & Housing Finder Platform',
     category: 'Full Stack Web Application',
-    year: '2024',
+    year: '2025',
     description:
       'A full-stack roommate finding and co-living platform that connects like-minded people and makes finding suitable housing and roommates easier.',
     tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Neon PostgreSQL'],
@@ -47,7 +47,7 @@ const PROJECTS = [
     tagline:
       'LLM-Augmented Multi-Agent Cyber Threat Intelligence and Automated Incident Response Platform',
     category: 'AI & Cybersecurity Platform',
-    year: '2025',
+    year: '2026',
     description:
       'AegisAI is an AI-powered cybersecurity platform that acts as an intelligent analysis and orchestration layer over existing security infrastructure. It analyzes security logs from multiple sources, correlates suspicious events, assesses threat severity, generates explainable AI-driven security insights, and enables policy-controlled automated responses such as IP blocking, user account locking, alerts, and incident creation.',
     tech: [
@@ -73,7 +73,7 @@ const PROJECTS = [
     name: 'Talvyn',
     tagline: 'Career Intelligence & Job Application Assistant',
     category: 'Full Stack Career Intelligence Platform',
-    year: '2025',
+    year: '2026',
     description:
       'Built a full-stack career intelligence platform that combines a React/TypeScript SaaS dashboard with a Node.js/Express API, PostgreSQL/Prisma data layer, and Manifest V3 browser extension. Talvyn helps users discover and evaluate job opportunities, manage resumes and profiles, score jobs against their skills and career preferences, track applications, and automate repetitive application workflows.',
     tech: [
@@ -102,8 +102,399 @@ const PROJECTS = [
 
 const TOTAL = PROJECTS.length
 
-/* ─── Placeholder for projects without a screenshot ─────── */
+/* ─── High-Fidelity UI Mockups for Projects ──────────────── */
 function PlaceholderImage({ name }: { name: string }) {
+  if (name === 'CoLiviMates') {
+    return (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          background: 'linear-gradient(135deg, #0c0f14 0%, #08090c 100%)',
+          padding: '16px 20px',
+          boxSizing: 'border-box',
+          position: 'relative',
+          overflow: 'hidden',
+          userSelect: 'none',
+        }}
+      >
+        {/* Subtle background glow & grid */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '-30%',
+            right: '-10%',
+            width: '300px',
+            height: '300px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Window Chrome Bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingBottom: '12px',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+            marginBottom: '14px',
+          }}
+        >
+          <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }} />
+          </div>
+          <div
+            style={{
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '10px',
+              color: 'rgba(255,255,255,0.4)',
+              background: 'rgba(255,255,255,0.04)',
+              padding: '3px 12px',
+              borderRadius: '6px',
+              border: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            colivimates.vercel.app/explore
+          </div>
+          <div style={{ width: '36px' }} />
+        </div>
+
+        {/* Mock UI Content */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1, minHeight: 0 }}>
+          {/* Search & Filter Bar */}
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <div
+              style={{
+                flex: 1,
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '8px',
+                padding: '7px 12px',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '11px',
+                color: 'rgba(255,255,255,0.6)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+            >
+              <span style={{ color: '#38bdf8' }}>🔍</span> Search shared apartments, rooms & flatmates...
+            </div>
+            <div
+              style={{
+                background: 'rgba(56, 189, 248, 0.12)',
+                border: '1px solid rgba(56, 189, 248, 0.3)',
+                color: '#38bdf8',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '10px',
+                padding: '7px 12px',
+                borderRadius: '8px',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Filter & Match
+            </div>
+          </div>
+
+          {/* Listing Cards Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px', flex: 1 }}>
+            <div
+              style={{
+                background: 'rgba(255,255,255,0.025)',
+                border: '1px solid rgba(255,255,255,0.07)',
+                borderRadius: '10px',
+                padding: '12px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: '#6ee7b7', background: 'rgba(110,231,183,0.1)', padding: '2px 6px', borderRadius: '4px' }}>98% COMPATIBILITY</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', fontWeight: 600, color: '#ffffff' }}>$480/mo</span>
+                </div>
+                <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '14px', color: '#ffffff', fontWeight: 600 }}>Urban Co-Living Loft</div>
+                <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: 'rgba(255,255,255,0.4)', marginTop: '4px' }}>2 BHK Private Suite • Tech Hub</div>
+              </div>
+              <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '6px' }}>
+                <span style={{ fontSize: '9px', fontFamily: 'JetBrains Mono, monospace', color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.04)', padding: '2px 5px', borderRadius: '3px' }}>Furnished</span>
+                <span style={{ fontSize: '9px', fontFamily: 'JetBrains Mono, monospace', color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.04)', padding: '2px 5px', borderRadius: '3px' }}>High-Speed WiFi</span>
+              </div>
+            </div>
+
+            <div
+              style={{
+                background: 'rgba(255,255,255,0.025)',
+                border: '1px solid rgba(255,255,255,0.07)',
+                borderRadius: '10px',
+                padding: '12px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: '#6ee7b7', background: 'rgba(110,231,183,0.1)', padding: '2px 6px', borderRadius: '4px' }}>95% COMPATIBILITY</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', fontWeight: 600, color: '#ffffff' }}>$520/mo</span>
+                </div>
+                <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '14px', color: '#ffffff', fontWeight: 600 }}>Skyline Garden Studio</div>
+                <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: 'rgba(255,255,255,0.4)', marginTop: '4px' }}>Master Bedroom • Pet Friendly</div>
+              </div>
+              <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '6px' }}>
+                <span style={{ fontSize: '9px', fontFamily: 'JetBrains Mono, monospace', color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.04)', padding: '2px 5px', borderRadius: '3px' }}>Gym Access</span>
+                <span style={{ fontSize: '9px', fontFamily: 'JetBrains Mono, monospace', color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.04)', padding: '2px 5px', borderRadius: '3px' }}>Balcony</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (name === 'AegisAI') {
+    return (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          background: 'linear-gradient(135deg, #090e13 0%, #06080b 100%)',
+          padding: '16px 20px',
+          boxSizing: 'border-box',
+          position: 'relative',
+          overflow: 'hidden',
+          userSelect: 'none',
+        }}
+      >
+        {/* Subtle Cyber Radar Glow */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '-20%',
+            left: '-10%',
+            width: '320px',
+            height: '320px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(239, 68, 68, 0.09) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Window Chrome Bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingBottom: '12px',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+            marginBottom: '14px',
+          }}
+        >
+          <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }} />
+          </div>
+          <div
+            style={{
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '10px',
+              color: 'rgba(255,255,255,0.4)',
+              background: 'rgba(255,255,255,0.04)',
+              padding: '3px 12px',
+              borderRadius: '6px',
+              border: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            aegisai.internal/soc-telemetry
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }} />
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: '#22c55e' }}>ONLINE</span>
+          </div>
+        </div>
+
+        {/* Mock UI Content */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, minHeight: 0 }}>
+          {/* Status Metrics Bar */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '6px', padding: '8px 10px' }}>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '8px', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Ingested Logs</div>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '13px', color: '#f0f0f0', fontWeight: 600, marginTop: '2px' }}>148.2k / sec</div>
+            </div>
+            <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '6px', padding: '8px 10px' }}>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '8px', color: 'rgba(239,68,68,0.7)', textTransform: 'uppercase' }}>Threats Mitigated</div>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '13px', color: '#ef4444', fontWeight: 600, marginTop: '2px' }}>39 Auto-Blocked</div>
+            </div>
+            <div style={{ background: 'rgba(110,231,183,0.05)', border: '1px solid rgba(110,231,183,0.2)', borderRadius: '6px', padding: '8px 10px' }}>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '8px', color: 'rgba(110,231,183,0.7)', textTransform: 'uppercase' }}>AI Confidence</div>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '13px', color: '#6ee7b7', fontWeight: 600, marginTop: '2px' }}>99.4% Accuracy</div>
+            </div>
+          </div>
+
+          {/* Real-time AI Event Stream Terminal */}
+          <div
+            style={{
+              background: 'rgba(0,0,0,0.45)',
+              border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: '8px',
+              padding: '10px 12px',
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '10px',
+              lineHeight: 1.6,
+              color: 'rgba(255,255,255,0.6)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px',
+              flex: 1,
+              overflow: 'hidden',
+            }}
+          >
+            <div style={{ color: '#6ee7b7' }}>[CORRELATE] Ingested 4,120 auth events from Cloudflare & VPC flow logs</div>
+            <div style={{ color: '#f59e0b' }}>[REASONING] Multi-agent agent_03 flagged anomaly: Dist. Brute-Force (IP 194.26.29.x)</div>
+            <div style={{ color: '#ef4444' }}>[AUTO-RESPONSE] Applied policy action: IP Quarantined & Account Session Revoked (14ms)</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (name === 'Talvyn') {
+    return (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          background: 'linear-gradient(135deg, #0d0f17 0%, #07090f 100%)',
+          padding: '16px 20px',
+          boxSizing: 'border-box',
+          position: 'relative',
+          overflow: 'hidden',
+          userSelect: 'none',
+        }}
+      >
+        {/* Subtle Violet Accent Glow */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '-20%',
+            right: '-10%',
+            width: '320px',
+            height: '320px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.09) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Window Chrome Bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingBottom: '12px',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+            marginBottom: '14px',
+          }}
+        >
+          <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }} />
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }} />
+          </div>
+          <div
+            style={{
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: '10px',
+              color: 'rgba(255,255,255,0.4)',
+              background: 'rgba(255,255,255,0.04)',
+              padding: '3px 12px',
+              borderRadius: '6px',
+              border: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            talvyn.vercel.app/dashboard
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: '#a78bfa', background: 'rgba(167,139,250,0.15)', padding: '2px 6px', borderRadius: '4px' }}>EXTENSION ACTIVE</span>
+          </div>
+        </div>
+
+        {/* Mock UI Content */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1, minHeight: 0 }}>
+          {/* Opportunity Match Pipeline Cards */}
+          <div style={{ display: 'flex', gap: '10px', flex: 1 }}>
+            <div
+              style={{
+                flex: 1,
+                background: 'rgba(255,255,255,0.025)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '10px',
+                padding: '12px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: '#6ee7b7', background: 'rgba(110,231,183,0.1)', padding: '2px 6px', borderRadius: '4px' }}>96% SKILL MATCH</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: 'rgba(255,255,255,0.4)' }}>Full-Time</span>
+                </div>
+                <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '14px', color: '#ffffff', fontWeight: 600 }}>Senior Full Stack Engineer</div>
+                <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: 'rgba(255,255,255,0.4)', marginTop: '3px' }}>Prisma • React • Node.js • TypeScript</div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: '#a78bfa' }}>⚡ 1-Click Autofill Ready</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: 'rgba(255,255,255,0.5)', background: 'rgba(255,255,255,0.05)', padding: '2px 6px', borderRadius: '4px' }}>Applied</span>
+              </div>
+            </div>
+
+            <div
+              style={{
+                flex: 1,
+                background: 'rgba(255,255,255,0.025)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '10px',
+                padding: '12px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: '#6ee7b7', background: 'rgba(110,231,183,0.1)', padding: '2px 6px', borderRadius: '4px' }}>92% SKILL MATCH</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: 'rgba(255,255,255,0.4)' }}>Remote</span>
+                </div>
+                <div style={{ fontFamily: 'Clash Display, sans-serif', fontSize: '14px', color: '#ffffff', fontWeight: 600 }}>AI Systems Engineer</div>
+                <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: 'rgba(255,255,255,0.4)', marginTop: '3px' }}>LLM APIs • TypeScript • TanStack</div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: '#a78bfa' }}>⚡ Tailored Resume Generated</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '9px', color: '#6ee7b7', background: 'rgba(110,231,183,0.1)', padding: '2px 6px', borderRadius: '4px' }}>Interviewing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div
       style={{
@@ -117,7 +508,6 @@ function PlaceholderImage({ name }: { name: string }) {
         background:     '#0d0d0d',
       }}
     >
-      {/* Subtle grid */}
       <div
         style={{
           position:        'absolute',

@@ -14,7 +14,7 @@ const fadeUp = (delay: number) => ({
 const stats = [
   { label: 'Location',     value: 'Coimbatore, India',    icon: '◎' },
   { label: 'Availability', value: 'Open to Opportunities', icon: '◉' },
-  { label: 'Projects',     value: '3',                    icon: '◆' },
+  { label: 'Projects',     value: '4',                    icon: '◆' },
   { label: 'Status',       value: 'Fresher',               icon: '◈' },
 ]
 
