@@ -10,6 +10,7 @@ import { motion, useInView } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import contactLandscape from '../assets/contact_landscape.png'
+import resumePdf from '../assets/resume.pdf'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -44,7 +45,7 @@ const contactLinks = [
   },
   {
     label:   'Resume',
-    href:    '/resume.pdf',
+    href:    resumePdf,
     primary: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">

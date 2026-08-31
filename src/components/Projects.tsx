@@ -25,7 +25,6 @@ const PROJECTS = [
     status: { label: 'Production Ready', color: '#6ee7b7' },
     live: 'https://cricauctionipl.web.app/',
     source: 'https://github.com/Abhinavm055/CricAuctionIPL',
-    githubUsername: '@Abhinavm055',
     image: projectMockup,
   },
   {
@@ -35,27 +34,68 @@ const PROJECTS = [
     category: 'Full Stack Web Application',
     year: '2024',
     description:
-      'Developed a full-stack web platform that helps users discover compatible roommates and co-living spaces through secure authentication, role-based dashboards, and an intuitive housing search experience.',
-    tech: ['React', 'JavaScript', 'Vite', 'Tailwind CSS', 'PostgreSQL', 'Node.js'],
+      'A full-stack roommate finding and co-living platform that connects like-minded people and makes finding suitable housing and roommates easier.',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Neon PostgreSQL'],
     status: { label: 'Production Ready', color: '#6ee7b7' },
     live: 'https://co-livi-mates.vercel.app/',
     source: 'https://github.com/Abhinavm055/CoLiviMates',
-    githubUsername: '@Abhinavm055',
     image: null,
   },
   {
     id: '03',
-    name: 'LifeOS AI',
-    tagline: 'AI-Powered Personal Productivity OS',
-    category: 'Full Stack AI Application',
+    name: 'AegisAI',
+    tagline:
+      'LLM-Augmented Multi-Agent Cyber Threat Intelligence and Automated Incident Response Platform',
+    category: 'AI & Cybersecurity Platform',
     year: '2025',
     description:
-      'An AI-powered personal productivity operating system featuring intelligent reflection, goal tracking, calendar management, journaling, and adaptive habit routines.',
-    tech: ['TypeScript', 'Next.js', 'OpenAI', 'PostgreSQL', 'Neon', 'Tailwind CSS'],
-    status: { label: 'Live', color: '#6ee7b7' },
-    live: 'https://github.com/Abhinavm055',
-    source: 'https://github.com/Abhinavm055/LifeOS-AI',
-    githubUsername: '@Abhinavm055',
+      'AegisAI is an AI-powered cybersecurity platform that acts as an intelligent analysis and orchestration layer over existing security infrastructure. It analyzes security logs from multiple sources, correlates suspicious events, assesses threat severity, generates explainable AI-driven security insights, and enables policy-controlled automated responses such as IP blocking, user account locking, alerts, and incident creation.',
+    tech: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'Spring Boot',
+      'Java',
+      'Python',
+      'LLMs',
+      'Multi-Agent AI',
+      'PostgreSQL',
+      'Docker',
+    ],
+    status: { label: 'Production Ready', color: '#6ee7b7' },
+    live: 'https://aegisai-cyber.vercel.app/',
+    source: 'https://github.com/Abhinavm055/AegisAI',
+    image: null,
+  },
+  {
+    id: '04',
+    name: 'Talvyn',
+    tagline: 'Career Intelligence & Job Application Assistant',
+    category: 'Full Stack Career Intelligence Platform',
+    year: '2025',
+    description:
+      'Built a full-stack career intelligence platform that combines a React/TypeScript SaaS dashboard with a Node.js/Express API, PostgreSQL/Prisma data layer, and Manifest V3 browser extension. Talvyn helps users discover and evaluate job opportunities, manage resumes and profiles, score jobs against their skills and career preferences, track applications, and automate repetitive application workflows.',
+    tech: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'React Router',
+      'TanStack Query',
+      'Zustand',
+      'Node.js',
+      'Express.js',
+      'PostgreSQL',
+      'Prisma',
+      'JWT',
+      'Google OAuth',
+      'Manifest V3',
+      'Chrome Extension APIs',
+    ],
+    status: { label: 'Production Ready', color: '#6ee7b7' },
+    live: 'https://talvyn.vercel.app/',
+    source: 'https://github.com/Abhinavm055/Talvyn',
     image: null,
   },
 ]
@@ -531,16 +571,16 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Description — 3-4 complete lines of text, high legibility */}
+                {/* Description — complete text, high legibility */}
                 <p
                   style={{
                     fontFamily:     'Geist, Helvetica Neue, Arial, sans-serif',
-                    fontSize:       'clamp(14px, 1.1vw, 16px)',
-                    lineHeight:     1.8,
+                    fontSize:       'clamp(13px, 1vw, 15px)',
+                    lineHeight:     1.65,
                     color:          'rgba(255, 255, 255, 0.76)',
                     margin:         0,
                     display:        '-webkit-box',
-                    WebkitLineClamp: 4,
+                    WebkitLineClamp: 5,
                     WebkitBoxOrient: 'vertical',
                     overflow:       'hidden',
                   }}
@@ -558,7 +598,9 @@ export default function Projects() {
                   flexDirection: 'column',
                   borderLeft:    '1px solid #1e1e1e',
                   paddingLeft:   'clamp(16px, 2vw, 28px)',
-                  gap:           '20px',
+                  gap:           '16px',
+                  overflowY:     'auto',
+                  scrollbarWidth:'none',
                 }}
               >
                 {/* Year Section */}
@@ -596,7 +638,7 @@ export default function Projects() {
                       letterSpacing: '0.38em',
                       color:         'rgba(255,255,255,0.18)',
                       textTransform: 'uppercase',
-                      marginBottom:  '12px',
+                      marginBottom:  '10px',
                     }}
                   >
                     Stack
@@ -605,7 +647,7 @@ export default function Projects() {
                     style={{
                       display:       'flex',
                       flexDirection: 'column',
-                      gap:           'clamp(8px, 1.2vh, 12px)',
+                      gap:           'clamp(6px, 1vh, 9px)',
                     }}
                   >
                     {proj.tech.map((t) => (
@@ -613,8 +655,8 @@ export default function Projects() {
                         key={t}
                         style={{
                           fontFamily:    'JetBrains Mono, monospace',
-                          fontSize:      'clamp(10px, 0.85vw, 12px)',
-                          letterSpacing: '0.06em',
+                          fontSize:      'clamp(10px, 0.82vw, 12px)',
+                          letterSpacing: '0.04em',
                           color:         'rgba(255,255,255,0.38)',
                           whiteSpace:    'nowrap',
                         }}

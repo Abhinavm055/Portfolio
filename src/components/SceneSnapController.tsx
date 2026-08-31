@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useLenis } from './SmoothScroll'
 
 const SECTIONS = ['home', 'about', 'projects', 'open-to-work', 'technologies', 'contact']
-const TOTAL_PROJECTS = 3
+const TOTAL_PROJECTS = 4
 
 // power4.inOut easing for section scrolling
 const power4InOut = (t: number) =>
