@@ -13,11 +13,11 @@ import { motion, useInView } from 'framer-motion'
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 const roles = [
-  'Software Development',
-  'Designing',
-  'Fullstack Development',
-  'AI Engineering',
-  'React & Node.js',
+  'Software Engineering',
+  'Full Stack Development',
+  'Backend Development',
+  'AI / Software Projects',
+  'Internships & Entry-Level Roles',
 ]
 
 const highlights = [
@@ -28,8 +28,17 @@ const highlights = [
         <path d="M12 2v18M4 6l8 4 8-4" />
       </svg>
     ),
-    label: 'Software & Fullstack',
-    value: 'Java · Node.js · React · TS',
+    label: 'Software Engineering',
+    value: 'Java · Python · C · System Design',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+        <path d="M4 6h16M4 12h16M4 18h10" />
+      </svg>
+    ),
+    label: 'Full Stack & Backend',
+    value: 'React · Node.js · Spring Boot · TS',
   },
   {
     icon: (
@@ -37,20 +46,8 @@ const highlights = [
         <path d="M13 3L4 14h8l-1 7 9-11h-8l1-7z" />
       </svg>
     ),
-    label: 'AI Engineering',
-    value: 'OpenAI · LLM Apps · Next.js',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
-        <circle cx="12" cy="12" r="2" />
-        <ellipse cx="12" cy="12" rx="10" ry="4" />
-        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
-        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
-      </svg>
-    ),
-    label: 'Designing',
-    value: 'UI/UX · Aesthetics · Motion',
+    label: 'AI & Data Layer',
+    value: 'Google Gemini · LLMs · PostgreSQL',
   },
   {
     icon: (
@@ -59,8 +56,8 @@ const highlights = [
         <path d="M3 9h18M9 21V9" />
       </svg>
     ),
-    label: 'Availability',
-    value: 'Full-Time · Internship · Remote',
+    label: 'Target Roles',
+    value: 'Internships · Entry-Level · Remote / On-Site',
   },
 ]
 
@@ -103,7 +100,7 @@ export default function OpenToWork() {
           transition={{ duration: 1.1, ease: EASE }}
           style={{ marginBottom: '64px' }}
         >
-          <div className="section-label" style={{ marginBottom: '16px' }}>Career</div>
+          <div className="section-label" style={{ marginBottom: '16px' }}>Opportunities</div>
           <h2
             className="font-clash text-primary"
             style={{ fontSize: 'clamp(38px,5vw,54px)', letterSpacing: '-0.01em', lineHeight: 1.1 }}
@@ -138,7 +135,7 @@ export default function OpenToWork() {
             />
 
             <div style={{ padding: 'clamp(32px, 5vh, 60px) clamp(28px, 5vw, 64px)' }}>
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16">
+              <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16">
 
                 {/* Left — Main call */}
                 <div className="flex flex-col gap-8">
@@ -167,7 +164,7 @@ export default function OpenToWork() {
                       className="section-label"
                       style={{ color: '#22c55e', fontSize: '12px' }}
                     >
-                      Actively Looking
+                      Actively Seeking Opportunities
                     </span>
                   </div>
 
@@ -176,9 +173,9 @@ export default function OpenToWork() {
                       className="font-clash text-primary"
                       style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
                     >
-                      Open to Full-Time
+                      Computer Science
                       <br />
-                      Opportunities
+                      Engineering Student
                     </h3>
                     <p
                       style={{
@@ -186,11 +183,11 @@ export default function OpenToWork() {
                         fontSize:   '16px',
                         lineHeight: 1.8,
                         marginTop:  '16px',
-                        maxWidth:   '420px',
+                        maxWidth:   '460px',
                       }}
                     >
-                      Fresh graduate eager to contribute, learn, and build remarkable products.
-                      Available for internships and full-time roles immediately.
+                      Computer Science Engineering student seeking career opportunities across Software Engineering,
+                      Full Stack Development, and AI Projects. Ready to contribute, learn, and build high-impact solutions.
                     </p>
                   </div>
 
