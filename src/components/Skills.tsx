@@ -104,11 +104,11 @@ const SkillIcon = ({ name }: { name: string }) => {
 
 /* ─── Data ─────────────────────────────────────────────────────── */
 const categories = [
-  { label: 'Backend',  skills: ['Java', 'Node.js'],                      accent: '#E5483F' },
-  { label: 'Frontend', skills: ['React', 'JavaScript', 'TypeScript'],    accent: '#E5483F' },
-  { label: 'Database', skills: ['MySQL', 'PostgreSQL', 'Firebase'],      accent: '#E5483F' },
-  { label: 'Mobile',   skills: ['Flutter'],                              accent: '#E5483F' },
-  { label: 'Tools',    skills: ['Git', 'GitHub'],                        accent: '#E5483F' },
+  { label: 'Backend',  skills: ['Java', 'Node.js'],                      accent: '#DC2626' },
+  { label: 'Frontend', skills: ['React', 'JavaScript', 'TypeScript'],    accent: '#DC2626' },
+  { label: 'Database', skills: ['MySQL', 'PostgreSQL', 'Firebase'],      accent: '#DC2626' },
+  { label: 'Mobile',   skills: ['Flutter'],                              accent: '#DC2626' },
+  { label: 'Tools',    skills: ['Git', 'GitHub'],                        accent: '#DC2626' },
 ]
 
 /* ─── Assign stable depth factors (seeded per render — SSR-safe) ── */

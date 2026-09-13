@@ -2,21 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
 /**
- * Crimson Blade Cursor Component
+ * Dark Blue Blade Cursor Component
  * 
  * Specs:
  * - Native browser cursor completely hidden on non-touch desktop devices.
- * - Motion-Revealed Blade: Custom Matte Crimson Red (#B22222) SVG samurai blade tip (20px).
+ * - Motion-Revealed Blade: Custom Matte Dark Blue (#2563EB) SVG samurai blade tip (20px).
  * - Invisible when stationary: Fades out completely to 0 opacity over 120ms when mouse movement stops.
  * - Movement: Zero-lag 1:1 position tracking, directional rotation interpolation along movement vector.
- * - Air Trail: 10-16px low-opacity crimson trail fading within 120ms on a GPU canvas overlay.
+ * - Air Trail: 10-16px low-opacity blue trail fading within 120ms on a GPU canvas overlay.
  * - Hover Effects:
- *   - Blade scales +15% (scale 1.15) and brightens (#FF2222).
+ *   - Blade scales +15% (scale 1.15) and brightens (#3B82F6).
  *   - Micro-idle ±3° sine wave rotation oscillation.
  *   - Hovered elements lift 3px (translate3d(0, -3px, 0)).
  * - Click Effect:
  *   - Blade extends 18px -> 30px -> 18px in 120ms.
- *   - Instant directional crimson slash line flash (<100ms).
+ *   - Instant directional blue slash line flash (<100ms).
  *   - No particles, sparks, or smoke.
  * - Fallbacks: Touch devices & prefers-reduced-motion restore native browser cursor.
  */
@@ -117,6 +117,14 @@ export default function Cursor() {
 
     /* ── Mouse move handler: zero-lag position & motion reveal ── */
     const onMouseMove = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null
+      if (target?.closest('[data-cursor="none"]')) {
+        gsap.set(bladeEl, { opacity: 0 })
+        isMoving.current = false
+        trailSegments.current = []
+        return
+      }
+
       const mx = e.clientX
       const my = e.clientY
       const now = performance.now()
@@ -158,6 +166,11 @@ export default function Cursor() {
 
     /* ── Mouse click handler: 18px -> 30px extension & directional slash line ── */
     const onMouseDown = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null
+      if (target?.closest('[data-cursor="none"]')) {
+        return
+      }
+
       const mx = e.clientX
       const my = e.clientY
 
@@ -187,6 +200,18 @@ export default function Cursor() {
       const target = e.target as HTMLElement | null
       if (!target) return
 
+      if (target.closest('[data-cursor="none"]')) {
+        gsap.set(bladeEl, { opacity: 0 })
+        if (currentHoveredEl.current) {
+          currentHoveredEl.current.style.transform = ''
+          currentHoveredEl.current.style.boxShadow = ''
+          currentHoveredEl.current.style.transition = ''
+          currentHoveredEl.current = null
+        }
+        isHovering.current = false
+        return
+      }
+
       const interactiveTarget = target.closest<HTMLElement>(
         'a, button, input, select, textarea, [role="button"], .btn, .nav-link, .glass-card, .skill-card, .hobby-card, .tech-chip, [data-cursor="hover"], [data-cursor="project"]'
       )
@@ -205,11 +230,11 @@ export default function Cursor() {
           // Hover element 3px lift
           interactiveTarget.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease'
           interactiveTarget.style.transform  = 'translate3d(0, -3px, 0)'
-          interactiveTarget.style.boxShadow  = '0 10px 24px rgba(0, 0, 0, 0.45), 0 0 1px rgba(178, 34, 34, 0.3)'
+          interactiveTarget.style.boxShadow  = '0 10px 24px rgba(0, 0, 0, 0.45), 0 0 1px rgba(220, 38, 38, 0.3)'
 
           // Blade scale +15% & color brighten
           gsap.to(bladeEl, { scale: 1.15, duration: 0.2, ease: 'power2.out' })
-          if (pathEl) pathEl.setAttribute('fill', '#FF2222')
+          if (pathEl) pathEl.setAttribute('fill', '#EF4444')
         }
       } else {
         if (currentHoveredEl.current) {
@@ -220,7 +245,7 @@ export default function Cursor() {
         }
         isHovering.current = false
         gsap.to(bladeEl, { scale: 1.0, duration: 0.2, ease: 'power2.out' })
-        if (pathEl) pathEl.setAttribute('fill', '#B22222')
+        if (pathEl) pathEl.setAttribute('fill', '#DC2626')
       }
     }
 
@@ -235,7 +260,7 @@ export default function Cursor() {
         }
         isHovering.current = false
         gsap.to(bladeEl, { scale: 1.0, duration: 0.2, ease: 'power2.out' })
-        if (pathEl) pathEl.setAttribute('fill', '#B22222')
+        if (pathEl) pathEl.setAttribute('fill', '#DC2626')
       }
     }
 
@@ -288,14 +313,14 @@ export default function Cursor() {
           ctx.beginPath()
           ctx.moveTo(s1.x, s1.y)
           ctx.lineTo(s2.x, s2.y)
-          ctx.strokeStyle = `rgba(178, 34, 34, ${ageRatio * 0.45})`
+          ctx.strokeStyle = `rgba(220, 38, 38, ${ageRatio * 0.45})`
           ctx.lineWidth = 1.5
           ctx.lineCap = 'round'
           ctx.stroke()
         }
       }
 
-      // 2. Click Directional Crimson Slash (<100ms instant flash)
+      // 2. Click Directional Red Slash (<100ms instant flash)
       const SLASH_LIFESPAN = 90 // ms
       clickSlashes.current = clickSlashes.current.filter(s => now - s.time < SLASH_LIFESPAN)
 
@@ -311,7 +336,7 @@ export default function Cursor() {
         ctx.beginPath()
         ctx.moveTo(startX, startY)
         ctx.lineTo(endX, endY)
-        ctx.strokeStyle = `rgba(255, 34, 34, ${ageRatio * 0.95})`
+        ctx.strokeStyle = `rgba(239, 68, 68, ${ageRatio * 0.95})`
         ctx.lineWidth = 2.0
         ctx.lineCap = 'butt'
         ctx.stroke()
@@ -340,7 +365,7 @@ export default function Cursor() {
 
   return (
     <>
-      {/* 10-16px Crimson Air Trail & Click Slash Canvas Overlay */}
+      {/* 10-16px Crimson Red Air Trail & Click Slash Canvas Overlay */}
       <canvas
         ref={canvasRef}
         style={{
@@ -354,7 +379,7 @@ export default function Cursor() {
         }}
       />
 
-      {/* Crimson Samurai Blade Tip (20px Length x 10px Width, Flat #B22222) */}
+      {/* Crimson Red Samurai Blade Tip (20px Length x 10px Width, Flat #DC2626) */}
       <div
         ref={bladeRef}
         style={{
@@ -380,7 +405,7 @@ export default function Cursor() {
           <path
             ref={pathRef}
             d="M5 0 L10 16 L5 20 L0 16 Z"
-            fill="#B22222"
+            fill="#DC2626"
           />
         </svg>
       </div>

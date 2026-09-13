@@ -169,7 +169,7 @@ export default function HeroCinematic() {
     const drawP = (p: Particle) => {
       ctx.save()
       ctx.globalAlpha = p.opacity
-      ctx.fillStyle   = 'rgba(229,100,60,1)'
+      ctx.fillStyle   = 'rgba(239, 68, 68, 0.9)'
       ctx.beginPath()
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
       ctx.fill()
@@ -212,14 +212,14 @@ export default function HeroCinematic() {
           background:
             'linear-gradient(to bottom,' +
             '#090909 0%,' +
-            '#0F0808 20%,' +
-            '#1A0A0A 40%,' +
-            '#3A0E0E 54%,' +
-            '#5E1E1E 65%,' +
-            '#8B2A18 73%,' +
-            '#A83E2E 80%,' +
-            '#C44A2A 86%,' +
-            '#A83E2E 91%,' +
+            '#150505 20%,' +
+            '#230606 40%,' +
+            '#3b0808 54%,' +
+            '#590d0d 65%,' +
+            '#7f1111 73%,' +
+            '#b91c1c 80%,' +
+            '#dc2626 86%,' +
+            '#7f1d1d 91%,' +
             '#090909 100%)',
         }}
       />
@@ -229,8 +229,8 @@ export default function HeroCinematic() {
         style={{
           position: 'absolute', inset: 0,
           background: 'radial-gradient(ellipse 85% 50% at 50% 72%,' +
-            'rgba(255,120,40,0.18) 0%,' +
-            'rgba(229,72,63,0.08) 40%,' +
+            'rgba(220, 38, 38, 0.2) 0%,' +
+            'rgba(127, 29, 29, 0.08) 40%,' +
             'transparent 70%)',
           pointerEvents: 'none',
         }}
@@ -250,9 +250,9 @@ export default function HeroCinematic() {
           marginLeft:   'calc(clamp(260px,36vw,560px) / -2)',
           marginTop:    'calc(clamp(260px,36vw,560px) / -2)',
           background:   'radial-gradient(ellipse at center,' +
-            'rgba(255,160,60,0.55) 0%,' +
-            'rgba(229,72,63,0.32) 28%,' +
-            'rgba(180,50,30,0.15) 58%,' +
+            'rgba(248,113,113,0.55) 0%,' +
+            'rgba(220,38,38,0.32) 28%,' +
+            'rgba(127,29,29,0.15) 58%,' +
             'transparent 100%)',
           borderRadius: '50%',
           filter:       'blur(60px)',
@@ -274,8 +274,8 @@ export default function HeroCinematic() {
         >
           <defs>
             <linearGradient id="mtnFarGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#120606" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#0A0303" stopOpacity="1" />
+              <stop offset="0%" stopColor="#0D0D0D" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#050505" stopOpacity="1" />
             </linearGradient>
           </defs>
           <path
@@ -306,7 +306,7 @@ export default function HeroCinematic() {
                L547 603 L634 666 L749 585 L835 657 L936 612
                L1037 684 L1152 630 L1253 702 L1354 648 L1440 720
                L1440 900 L0 900 Z"
-            fill="#0A0303"
+            fill="#050505"
           />
         </svg>
       </div>
@@ -321,7 +321,7 @@ export default function HeroCinematic() {
           left: '-60%', top: 0,
           width: '220%', height: '100%',
           background: 'radial-gradient(ellipse 55% 9% at 50% 66%,' +
-            'rgba(130,45,20,0.18) 0%, transparent 100%)',
+            'rgba(200,200,200,0.12) 0%, transparent 100%)',
           pointerEvents: 'none',
         }}
       />
@@ -333,7 +333,7 @@ export default function HeroCinematic() {
           left: '-60%', top: 0,
           width: '220%', height: '100%',
           background: 'radial-gradient(ellipse 65% 7% at 45% 72%,' +
-            'rgba(55,14,7,0.22) 0%, transparent 100%)',
+            'rgba(40,40,40,0.18) 0%, transparent 100%)',
           pointerEvents: 'none',
         }}
       />
@@ -360,7 +360,7 @@ export default function HeroCinematic() {
                L686 776 L724 782 L764 774 L804 780 L846 772 L888 778
                L932 770 L976 776 L1022 768 L1068 774 L1116 766 L1164 772
                L1214 764 L1264 770 L1316 762 L1368 768 L1450 761 L1450 900 Z"
-            fill="#060202"
+            fill="#080808"
           />
         </svg>
       </div>

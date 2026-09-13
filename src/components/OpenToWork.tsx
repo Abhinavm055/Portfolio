@@ -122,15 +122,15 @@ export default function OpenToWork() {
               borderRadius: '24px',
               overflow: 'hidden',
               background: 'var(--card)',
-              border: '1px solid rgba(229,72,63,0.15)',
-              boxShadow: '0 40px 120px rgba(0,0,0,0.7), 0 0 80px rgba(229,72,63,0.05)',
+              border: '1px solid rgba(220,38,38,0.2)',
+              boxShadow: '0 40px 120px rgba(0,0,0,0.7), 0 0 80px rgba(220,38,38,0.08)',
             }}
           >
             {/* Card top accent line */}
             <div
               style={{
                 height: '2px',
-                background: 'linear-gradient(90deg, var(--accent) 0%, rgba(229,72,63,0.3) 50%, transparent 100%)',
+                background: 'linear-gradient(90deg, var(--accent) 0%, rgba(220,38,38,0.3) 50%, transparent 100%)',
               }}
             />
 

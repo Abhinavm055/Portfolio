@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './index.css'
 import SmoothScroll from './components/SmoothScroll'
 import ParallaxEngine from './components/ParallaxEngine'
-import CinematicBG from './components/CinematicBG'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -21,9 +20,6 @@ export default function App() {
   return (
     <SmoothScroll>
       <ParallaxEngine>
-        {/* Fixed 7-layer cinematic background */}
-        <CinematicBG />
-
         {/* Custom cursor */}
         <Cursor />
 
@@ -38,7 +34,9 @@ export default function App() {
         {/* Navigation & Portfolio content — ALWAYS mounted underneath from initial load */}
         <Navbar />
         <main>
+          {/* Hero is position:fixed — this spacer reserves its viewport slot in the scroll flow */}
           <Hero isIntroComplete={isIntroComplete} />
+          <div style={{ height: '100vh' }} aria-hidden="true" />
           <About />
           <Projects />
           <OpenToWork />

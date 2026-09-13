@@ -1,94 +1,165 @@
 /**
- * Hero — Cinematic Three-Layer Parallax Landing Section
- *
- * Layer depths:
- *   Layer 1 (Back)   — CinematicBG mountains (handled in CinematicBG.tsx)
- *   Layer 2 (Middle) — "ABHINAV" typography: FIXED, no scroll movement
- *   Layer 3 (Front)  — Anime character: FIXED at the bottom, no scroll movement
- *
- * All layers are now static for a clean, locked composition.
+ * Hero — Full-screen Home.png with name + scramble-role overlay on the right
  */
-import { memo, useRef } from 'react'
-import abhinavAnimeImg from '../assets/abhinav_anime.jpg'
+import { memo, useEffect, useRef, useState } from 'react'
+import homeImg from '../assets/Home.png'
+
+/* ── Scramble config ───────────────────────────────────── */
+const ROLES = [
+  'Full Stack Developer',
+  'Backend Developer',
+  'Software Developer',
+  'AI Developer',
+]
+
+const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&'
+const FRAME_INTERVAL  = 35   // ms between each scramble frame
+const SETTLE_SPEED    = 2.5  // how many frames before next char settles
 
 interface HeroProps {
   isIntroComplete?: boolean
 }
 
+/* ── Scramble hook ─────────────────────────────────────── */
+function useScrambleText(target: string) {
+  const [display, setDisplay] = useState(target)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const frameRef    = useRef(0)
+
+  useEffect(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    frameRef.current = 0
+
+    intervalRef.current = setInterval(() => {
+      const frame = frameRef.current
+      const settled = Math.floor(frame / SETTLE_SPEED)
+
+      setDisplay(
+        target
+          .split('')
+          .map((char, i) => {
+            if (char === ' ') return ' '
+            if (i < settled)  return char
+            return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
+          })
+          .join('')
+      )
+
+      frameRef.current++
+      if (settled >= target.length) {
+        clearInterval(intervalRef.current!)
+        setDisplay(target)
+      }
+    }, FRAME_INTERVAL)
+
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
+  }, [target])
+
+  return display
+}
+
+/* ── Component ─────────────────────────────────────────── */
 function Hero({ isIntroComplete: _isIntroComplete = false }: HeroProps) {
-  const sectionRef   = useRef<HTMLElement>(null)
-  const textRef      = useRef<HTMLDivElement>(null)
+  const [roleIndex, setRoleIndex] = useState(0)
+  const scrambled = useScrambleText(ROLES[roleIndex])
+
+  /* Cycle roles every 3.2 s */
+  useEffect(() => {
+    const id = setInterval(() => {
+      setRoleIndex(i => (i + 1) % ROLES.length)
+    }, 3200)
+    return () => clearInterval(id)
+  }, [])
 
   return (
     <section
       id="home"
-      ref={sectionRef}
-      className="relative min-h-screen w-full overflow-hidden"
       style={{
-        backgroundColor: 'transparent',
-        zIndex: 10,
+        position:   'fixed',
+        inset:      0,
+        width:      '100vw',
+        height:     '100vh',
+        zIndex:     10,
         userSelect: 'none',
+        overflow:   'hidden',
+        margin:     0,
+        padding:    0,
       }}
     >
-      {/* ── LAYER 2: ABHINAV TYPOGRAPHY (position: fixed — stays on screen while scrolling) ── */}
-      <div
-        ref={textRef}
-        className="pointer-events-none"
+      {/* ── Full-bleed background image ── */}
+      <img
+        src={homeImg}
+        alt="Abhinav"
+        decoding="async"
         style={{
-          position: 'fixed',
-          inset: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1,
-          padding: '0 6vw',
-          transform: 'translateY(-12vh)',
+          display:        'block',
+          width:          '100%',
+          height:         '100%',
+          objectFit:      'cover',
+          objectPosition: 'center center',
+        }}
+      />
+
+      {/* ── Text overlay — right side ── */}
+      <div
+        style={{
+          position:       'absolute',
+          top:            '50%',
+          right:          'clamp(40px, 8vw, 120px)',
+          transform:      'translateY(-50%)',
+          display:        'flex',
+          flexDirection:  'column',
+          alignItems:     'flex-end',
+          gap:            'clamp(8px, 1.5vh, 18px)',
+          pointerEvents:  'none',
         }}
       >
+        {/* Name */}
         <h1
-          className="font-shuriken"
           style={{
-            fontSize:             'clamp(60px, 18vw, 260px)',
-            fontWeight:           400,
-            backgroundImage:      'linear-gradient(180deg, #FF6547 0%, #E5483F 15%, #991B1B 50%, #000000 95%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor:  'transparent',
-            backgroundClip:       'text',
-            letterSpacing:        '0.04em',
-            lineHeight:           0.85,
-            whiteSpace:           'nowrap',
-            textTransform:        'uppercase',
-            textAlign:            'center',
-            maxWidth:             '96vw',
-            filter:               'drop-shadow(0 8px 25px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 45px rgba(229, 72, 63, 0.45))',
+            fontFamily:    '"Alfa Slab One", "Ultra", serif',
+            fontWeight:    400,
+            fontStyle:     'normal',
+            fontSize:      'clamp(48px, 6.5vw, 100px)',
+            lineHeight:    1,
+            letterSpacing: '0.04em',
+            color:         '#000000',
+            margin:        0,
+            textAlign:     'right',
+            whiteSpace:    'nowrap',
+            textTransform: 'uppercase',
           }}
         >
           ABHINAV
         </h1>
-      </div>
 
-      {/* ── LAYER 3: ANIME CHARACTER (fixed at bottom) ──── */}
-      <div
-        className="absolute flex items-end justify-center"
-        style={{
-          bottom:     0,
-          left:       '50%',
-          marginLeft: 'calc(-1 * clamp(320px, 45vw, 600px) / 2)',
-          zIndex:     2,
-          height:     'clamp(500px, 84vh, 900px)',
-          width:      'clamp(320px, 45vw, 600px)',
-        }}
-      >
-        <img
-          src={abhinavAnimeImg}
-          alt="Abhinav — Anime Character"
-          decoding="async"
-          className="h-full w-auto object-contain object-bottom"
+        {/* Divider */}
+        <div
           style={{
-            filter:       'contrast(1.08) brightness(0.96)',
-            mixBlendMode: 'screen',
+            width:           'clamp(70px, 9vw, 160px)',
+            height:          '2px',
+            backgroundColor: '#000000',
+            opacity:         0.6,
           }}
         />
+
+        {/* Scramble role */}
+        <p
+          style={{
+            fontFamily:    '"JetBrains Mono", monospace',
+            fontWeight:    400,
+            fontSize:      'clamp(12px, 1.4vw, 20px)',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color:         '#000000',
+            margin:        0,
+            textAlign:     'right',
+            whiteSpace:    'nowrap',
+            minWidth:      '22ch',   /* prevents layout shift on role change */
+          }}
+        >
+          {scrambled}
+        </p>
       </div>
     </section>
   )

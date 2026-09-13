@@ -669,7 +669,7 @@ export default function Projects() {
         }}
       >
         <span style={{ color: '#FFFFFF' }}>My </span>
-        <span style={{ color: '#B22222' }}>Works</span>
+        <span style={{ color: 'var(--accent)' }}>Works</span>
       </h2>
 
       {/* ── Counter & Chapter Dot Indicator ── */}
@@ -692,7 +692,7 @@ export default function Projects() {
                 width:        i === activeIdx ? '16px' : '6px',
                 height:       '6px',
                 borderRadius: '3px',
-                background:   i === activeIdx ? '#B22222' : 'rgba(255,255,255,0.18)',
+                background:   i === activeIdx ? 'var(--accent)' : 'rgba(255,255,255,0.18)',
                 transition:   'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             />
