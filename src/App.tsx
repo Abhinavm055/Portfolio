@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './index.css'
+import 'devicon/devicon.min.css'
 import SmoothScroll from './components/SmoothScroll'
 import ParallaxEngine from './components/ParallaxEngine'
 import Cursor from './components/Cursor'

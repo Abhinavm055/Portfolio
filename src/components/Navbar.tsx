@@ -12,7 +12,6 @@ const links = [
 
 export default function Navbar() {
   const [active, setActive]   = useState('home')
-  const [onHome, setOnHome]   = useState(true)
   const lenis = useLenis()
 
   useEffect(() => {
@@ -27,7 +26,6 @@ export default function Navbar() {
         }
       }
       setActive(current)
-      setOnHome(current === 'home')
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -42,42 +40,49 @@ export default function Navbar() {
     }
   }
 
-  /* Text colour: black on home (light bg), white on all other sections */
-  const textColor = onHome ? '#000000' : '#ffffff'
-
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-[9000] flex justify-center"
+      className="fixed top-0 left-0 right-0 z-[9000] flex items-center justify-center px-8"
       style={{
-        paddingTop:    '28px',
-        paddingBottom: '28px',
+        paddingTop:    'clamp(20px, 3vh, 32px)',
+        paddingBottom: 'clamp(16px, 2.5vh, 28px)',
         background:    'transparent',
         backdropFilter:'none',
+        pointerEvents: 'none',
       }}
     >
-      <div className="flex items-center gap-10">
-        {links.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={(e) => handleClick(e, link.href)}
-            className={`nav-link ${active === link.href.replace('#', '') ? 'active' : ''}`}
-            style={{
-              fontFamily:    '"Cormorant Garamond", Georgia, serif',
-              fontWeight:    600,
-              fontSize:      'clamp(13px, 1.1vw, 16px)',
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color:         textColor,
-              transition:    'color 0.4s ease',
-            }}
-          >
-            {link.label}
-          </a>
-        ))}
+      {/* Center navigation links */}
+      <div className="flex items-center gap-7 md:gap-11 pointer-events-auto">
+        {links.map((link) => {
+          const isActive = active === link.href.replace('#', '')
+          return (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleClick(e, link.href)}
+              className="relative py-1 group tracking-[0.22em] uppercase transition-colors duration-300"
+              style={{
+                fontFamily:    '"Cormorant Garamond", "Playfair Display", Georgia, serif',
+                fontWeight:    500,
+                fontSize:      'clamp(12px, 1.05vw, 15px)',
+                color:         isActive ? '#FFFFFF' : 'rgba(235, 235, 235, 0.82)',
+                textDecoration:'none',
+              }}
+            >
+              {link.label}
+              {/* Red active underline on HOME / current active section */}
+              {isActive && (
+                <span
+                  className="absolute left-0 right-0 -bottom-1 h-[1.5px] bg-[#E11D48]"
+                  style={{ borderRadius: '1px' }}
+                />
+              )}
+            </a>
+          )
+        })}
       </div>
     </motion.nav>
   )
