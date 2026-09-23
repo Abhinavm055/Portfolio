@@ -330,7 +330,7 @@ function Hero({ isIntroComplete: _isIntroComplete = false }: HeroProps) {
 
         {/* Instagram */}
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/vox.abhi"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
